@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  count: number = 10;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  add() {
+    this.count++;
+  }
+
+  subtract() {
+    this.count--;
   }
 
 }
