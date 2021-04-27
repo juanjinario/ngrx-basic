@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
+  count: number = 10;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  multiply() {
+    this.count = this.count * 2;
+  }
+
+  divide() {
+    this.count = this.count / 2;
   }
 
 }

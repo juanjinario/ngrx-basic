@@ -1,1 +1,22 @@
-<p>child works!</p>
+<div class="row text-center">
+    <div class="col">
+        <h3>Contador Hijo</h3>
+        <h4>{{ count }}</h4>
+    </div>
+</div>
+
+<div class="row text-center mt-3">
+    <div class="col">
+        <button class="btn btn-primary" (click)="multiply()">Incrementar</button>
+        <button class="btn btn-info ml-4" (click)="divide()">Decrementar</button>
+    </div>
+</div>
+
+
+<hr class="m-4"/>
+
+<div class="row text-center">
+    <div class="col">
+        <app-grandchild></app-grandchild>
+    </div>
+</div>

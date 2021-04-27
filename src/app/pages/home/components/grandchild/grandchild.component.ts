@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrandchildComponent implements OnInit {
 
+  count = 10;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  reset() {
+    this.count = 0;
   }
 
 }
