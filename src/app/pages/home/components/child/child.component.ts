@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IAppState } from 'src/app/core/models';
+import * as actions from 'src/app/redux/actions/count.actions';
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
@@ -7,19 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  count: number = 10;
+  $count: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store<IAppState>) {
+    this.$count = this.store.select('count');
+  }
 
   ngOnInit(): void {
   }
 
   multiply() {
-    this.count = this.count * 2;
+    this.store.dispatch(actions.multiply({num: 4}));
   }
 
   divide() {
-    this.count = this.count / 2;
+    this.store.dispatch(actions.divide({num: 2}));
   }
 
 }

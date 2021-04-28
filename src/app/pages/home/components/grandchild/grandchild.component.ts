@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { IAppState } from 'src/app/core/models';
+import * as actions from 'src/app/redux/actions/count.actions';
 @Component({
   selector: 'app-grandchild',
   templateUrl: './grandchild.component.html',
@@ -7,15 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GrandchildComponent implements OnInit {
 
-  count = 10;
+  $count: Observable<number>;
 
-  constructor() { }
+  constructor(private store: Store<IAppState>) {
+    this.$count = this.store.select('count');
+  }
 
   ngOnInit(): void {
   }
 
   reset() {
-    this.count = 0;
+    this.store.dispatch(actions.reset());
   }
 
 }
