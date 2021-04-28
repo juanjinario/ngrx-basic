@@ -9,7 +9,7 @@ const CONSTREDUCER = createReducer(
     on(decrement, (state) => state - 1),
     on(multiply, (state, { num }) => state * num),
     on(divide, (state, { num }) => state / num),
-    on(reset, (state) => 10)
+    on(reset, (state) => initialState)
 );
 
 export function countReducer(state, action) {
